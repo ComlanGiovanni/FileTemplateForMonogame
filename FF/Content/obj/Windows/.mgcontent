@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/Bureau/FF/FF/Content/Sprite/FlappyBirdGround.png</File>
+    <File>D:/Bureau/FF/FF/Content/Sprite/background1.png</File>
+    <File>D:/Bureau/FF/FF/Content/Sprite/bl.png</File>
+    <File>D:/Bureau/FF/FF/Content/Sprite/png.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/link/Just_Iddle.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/link/WalkingDown.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/link/WalkingLeft.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/link/WalkingRight.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/link/WalkingUp.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/other/WalkingLeft.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/other/WalkingRight.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/colored-balls.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/flame_sprite.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/ghost.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/pixelGhost.png</File>
+    <File>D:/Bureau/FF/FF/Content/SpriteSheet/sonic.png</File>
+  </SourceFiles>
+</SourceFileCollection>
