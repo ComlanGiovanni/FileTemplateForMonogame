@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Bureau/FF/FF/Content/SpriteSheet/link/WalkingDown.png</SourceFile>
-  <SourceTime>2018-04-11T11:00:50.6521728+02:00</SourceTime>
-  <DestFile>D:/Bureau/FF/FF/Content/bin/Windows/SpriteSheet/link/WalkingDown.xnb</DestFile>
-  <DestTime>2018-04-13T17:53:18.9999295+02:00</DestTime>
+  <SourceFile>D:/Bureau/FF/FF/Content/Sprite/Platform.png</SourceFile>
+  <SourceTime>2018-04-09T17:02:31.7967219+02:00</SourceTime>
+  <DestFile>D:/Bureau/FF/FF/Content/bin/Windows/Sprite/Platform.xnb</DestFile>
+  <DestTime>2018-04-13T17:53:19.7439097+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
