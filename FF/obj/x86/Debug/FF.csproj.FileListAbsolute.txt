@@ -52,3 +52,5 @@ D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\SpriteSheet\other\WalkingUp.xnb
 D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\SpriteSheet\crazy_Ball.xnb
 D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\SpriteSheet\enemy_3_spritesheet.xnb
 D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\SpriteSheet\colored-balls.xnb
+D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\Fonts\ComisSans48.xnb
+D:\Bureau\FF\FF\bin\Windows\x86\Debug\Content\Sprite\Ball.xnb

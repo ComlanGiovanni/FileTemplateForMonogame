@@ -11,6 +11,7 @@ namespace FF.Sprites
 {
     public class TwoDirMmtAnimSprite : FourDirMmtAnimatedSprite
     {
+        public StaticSprite SSsprite;
 
         //iddle smae sprite but a red zelda
         public TwoDirMmtAnimSprite(Dictionary<string, Animation> animations) : base(animations)
@@ -37,6 +38,8 @@ namespace FF.Sprites
         //Method
         private void Move()
         {
+            Velocity.Y = Speed;
+
             if (Keyboard.GetState().IsKeyDown(Input.Right))
             {
                 Velocity.X = Speed;

@@ -47,11 +47,13 @@
     <Compile Include="Models\Input.cs" />
     <Compile Include="Models\RectangleCollision.cs" />
     <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\TextDraw.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\FourDirMmtAnimatedSprite.cs" />
     <Compile Include="Sprites\FourDirMmtStaticSprite.cs" />
     <Compile Include="Sprites\MmtAnimatedSprite.cs" />
+    <Compile Include="Sprites\MmtStaticSprite.cs" />
     <Compile Include="Sprites\StaticAnimatedSprite.cs" />
     <Compile Include="Sprites\StaticSprite.cs" />
     <Compile Include="Sprites\TwoDirMmtAnimSprite.cs" />

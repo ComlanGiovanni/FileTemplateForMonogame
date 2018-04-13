@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FF.Sprites;
 using System.Collections.Generic;
+using System;
 
 namespace FF
 {
@@ -19,6 +20,10 @@ namespace FF
         private List<FourDirMmtAnimatedSprite> _fourDirAnmSprite;
         private List<TwoDirMmtAnimSprite> _twoDirAnimSprite;
         private List<MmtAnimatedSprite> _mmtAnimatedSprite;
+        private List<MmtStaticSprite> _mmtStaticSprite;
+
+        public static Random Random;
+        public TextDraw _score;
 
         public Game1()
         {
@@ -40,12 +45,15 @@ namespace FF
 
         protected override void Initialize()
         {
+            Random = new Random();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            _score = new TextDraw(Content.Load<SpriteFont>("Fonts/ComisSans48"));//C:/Windows/Fonts,
 
             var flameSprite = new List<Animation>(){{new Animation(Content.Load<Texture2D>("SpriteSheet/flame_sprite"), 6, 0.1f) },};
             var ghost = new List<Animation>(){{new Animation(Content.Load<Texture2D>("SpriteSheet/ghost"), 12, 0.1f) },};
@@ -56,6 +64,8 @@ namespace FF
 
             var playerTexture = (Content.Load<Texture2D>("Sprite/bl"));
             var playerpng = (Content.Load<Texture2D>("Sprite/png"));
+
+            var ballTexture = Content.Load<Texture2D>("Sprite/Ball");
 
             var flappyBirdGround = (Content.Load<Texture2D>("Sprite/FlappyBirdGround"));
             var backGround = (Content.Load<Texture2D>("Sprite/background1"));
@@ -99,14 +109,14 @@ namespace FF
                 new StaticAnimatedSprite.StaticAnimatedSprite(ghost){Position = new Vector2(500, 100),},
                 new StaticAnimatedSprite.StaticAnimatedSprite(sonic){Position = new Vector2(500, 300),},
                 new StaticAnimatedSprite.StaticAnimatedSprite(pixelGhost){Position = new Vector2(700, 100),},
+
             };
 
             _mmtAnimatedSprite = new List<MmtAnimatedSprite>()
             {
-                new MmtAnimatedSprite(cBall){Position = new Vector2(0, 800), Speed = 5f},
-                new MmtAnimatedSprite(cBall){Position = new Vector2(49, 140), Speed = 5f},
-                new MmtAnimatedSprite(cBall){Position = new Vector2(139, 512), Speed = 5f},
-                new MmtAnimatedSprite(cBall){Position = new Vector2(741, 80), Speed = 5f},
+                new MmtAnimatedSprite(cBall){Position = new Vector2(650, 800), Speed = 10f, Score = _score},
+                new MmtAnimatedSprite(cBall){Position = new Vector2(49, 140), Speed = 5f, Score = _score},
+                new MmtAnimatedSprite(cBall){Position = new Vector2(139, 512), Speed = 2f, Score = _score},
             };
 
             _staticSprites = new List<StaticSprite>()
@@ -170,7 +180,7 @@ namespace FF
             {
                 new TwoDirMmtAnimSprite(animations2Dir)
                 {
-                    Position = new Vector2(0, 844),
+                    Position = new Vector2(0, 0),
                     Speed = 4f,
 
                     Input = new Input()
@@ -181,6 +191,68 @@ namespace FF
                 }
             };
 
+            _mmtStaticSprite = new List<MmtStaticSprite>
+            {
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(250,800),
+                    Speed = 10f,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(500,800),
+                    Speed = 5f,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(750,800),
+                    Speed = 9f,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(250,250),
+                    Speed = 9f,
+                    Colour = Color.Red,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(500,250),
+                    Speed = 9f,
+                    Colour = Color.Red,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(750,250),
+                    Speed = 9f,
+                    Colour = Color.Red,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(250,500),
+                    Speed = 9f,
+                    Colour = Color.Pink,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(500,500),
+                    Speed = 9f,
+                    Colour = Color.Pink,
+                },
+
+                new MmtStaticSprite(ballTexture)
+                {
+                    Position = new Vector2(750,500),
+                    Speed = 9f,
+                    Colour = Color.Pink,
+                },
+            };
         }
 
         protected override void UnloadContent()
@@ -192,7 +264,7 @@ namespace FF
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            
             foreach (var sprite in _fourDirAnmSprite)
                 sprite.Update(gameTime, _fourDirAnmSprite);
 
@@ -210,10 +282,14 @@ namespace FF
 
             foreach (var sprite in _twoDirAnimSprite)
                 sprite.Update(gameTime, _twoDirAnimSprite);
-
+            
             foreach (var sprite in _mmtAnimatedSprite)
                 sprite.Update(gameTime, _mmtAnimatedSprite);
-        
+                
+            foreach (var sprite in _mmtStaticSprite)
+                sprite.Update(gameTime, _mmtStaticSprite);
+
+
             //No update for static sprite
 
             base.Update(gameTime);
@@ -221,10 +297,11 @@ namespace FF
         
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(FF.Models.Settings.DONT_AFFECT_COLOR_SPRITE);
+            GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
 
+            
             foreach (var sprite in _staticAnimSprites)
                 sprite.Draw(spriteBatch);
 
@@ -242,9 +319,14 @@ namespace FF
 
             foreach (var sprite in _twoDirAnimSprite)
                 sprite.Draw(spriteBatch);
-
+            
             foreach (var sprite in _mmtAnimatedSprite)
                 sprite.Draw(spriteBatch);
+                
+            foreach (var sprite in _mmtStaticSprite)
+                sprite.Draw(spriteBatch);
+
+            _score.Draw(spriteBatch);
 
             spriteBatch.End();
 
